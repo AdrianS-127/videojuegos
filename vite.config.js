@@ -7,7 +7,7 @@ export default defineConfig({
         laravel([
             'resources/css/app.css',
             'resources/js/app.js',
-            'resources/js/Games/index.js',
+            'resources/js/games/index.js',  
         ]),
         tailwindcss(),
     ],

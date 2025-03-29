@@ -46,7 +46,7 @@
                                     <form id="frm_{{$row->id}}" action="{{ route('games.destroy', $row->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalConfirmacion" 
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConfirmacion" 
                                         onclick="setInfo({{ $row->id }},'{{ $row->name }}')">
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -60,31 +60,31 @@
         </div>
     </div>
 
-    <!-- Modal Confirmación -->
-    <div class="modal" tabindex="-1" role="dialog" id="modalConfirmacion">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Seguro que desea eliminar?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <i class="fas fa-warning fs-3 text-warning"></i>
-                        <label id="lblNombre"></label>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="btnEliminar" class="btn btn-success">Continuar</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                </div>
+<!-- Modal Confirmación -->
+<div class="modal fade" tabindex="-1" id="modalConfirmacion">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Seguro que desea eliminar?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <i class="fas fa-warning fs-3 text-warning"></i>
+                    <label id="lblNombre"></label>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <!-- Botón de Confirmación -->
+                <button type="button" id="btnEliminar" class="btn btn-success">Continuar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
             </div>
         </div>
     </div>
+</div>
+
 @endsection
 
 @section('js')
-    @vite('resources/js/Games/index.js')
+    @vite('resources/js/games/index.js')
 @endsection

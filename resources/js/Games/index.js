@@ -8,20 +8,20 @@ window.onload = () => {
 
 let btnEliminar = document.querySelector('#btnEliminar');
 let lblNombre = document.querySelector('#lblNombre');
+let modal = new bootstrap.Modal(document.getElementById('modalConfirmacion')); // Inicializar el modal
+let formEliminar; // Variable para almacenar el formulario de eliminación
 
-// Definir función que recibe id y nombre para configurar el modal
+// Configurar el modal con la información del juego
 window.setInfo = (id, name) => {
-    const btnEliminar = document.querySelector('#btnEliminar');
-    btnEliminar.setAttribute('data-id', id); // Guardamos el id del juego en el botón
-    lblNombre.innerHTML = 'Eliminaras el juego: <b>' + name + '</b>';
+    // Establecer el ID y nombre del juego
+    formEliminar = document.getElementById('frm_' + id); // Obtener el formulario correspondiente
+    lblNombre.innerHTML = 'Eliminarás el juego: <b>' + name + '</b>'; // Mostrar el nombre del juego
+    modal.show(); // Mostrar el modal
 };
 
-// Al hacer clic en el botón 'Continuar', eliminamos el juego
-btnEliminar.addEventListener('click', function() {
-    const gameId = btnEliminar.getAttribute('data-id');
-    if (gameId) {
-        // Enviamos el formulario de eliminación
-        const form = document.getElementById(`frm_${gameId}`);
-        form.submit();  // Hacer submit al formulario que elimina el juego
+// Configurar el evento de eliminación
+btnEliminar.addEventListener('click', () => {
+    if (formEliminar) {
+        formEliminar.submit(); // Enviar el formulario
     }
 });

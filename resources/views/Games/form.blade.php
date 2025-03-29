@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-body">
                     <form action="@yield('formAction')" method="POST" enctype="multipart/form-data">
-                        @csrf  <!-- ✅ Necesario para que POST funcione en Laravel -->
+                        @csrf  
                         @yield('method')
 
                         <div class="input-group mb-3">
